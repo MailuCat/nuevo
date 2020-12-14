@@ -48,3 +48,15 @@ a {
   color: #42b983;
 }
 </style>
+ actions:{
+    async llamadoAPI({commit}){
+      try {
+        let result = await fetch('https://rickandmortyapi.com/api/character/')
+        let datos = await result.json();
+        commit('mutandoDatosApi',datos.results);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  }
+})

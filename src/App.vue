@@ -12,8 +12,11 @@ export default {
   name: 'App',
   components:{
     NavBar
-  }
- }
+  },
+   created() {
+    this.$store.dispatch('llamadoAPI');
+  },
+}
 </script>
 <style>
 #nav a.router-link-exact-active {
