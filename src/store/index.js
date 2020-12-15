@@ -6,18 +6,25 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     datosApi: [],
+    favorito: []
   },
   getters:{
     enviarDatosApi(state){
       return state.datosApi;
-    }
+    },
+    enviarFavorito(state){
+      return state.favorito;
+    },
   },
   mutations: {
     mutandoDatosApi(state,datos){
         state.datosApi = datos;
+    },
+    mutandoFavorito(state,valor){
+      state.favorito.push(valor)
     }
   },
-  actions:{
+   actions:{
     async llamadoAPI({commit}){
       try {
         let result = await fetch('https://rickandmortyapi.com/api/character/')
@@ -26,6 +33,9 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error);
       }
+    },
+    agregarFavorito({commit}, valor){
+        commit('mutandoFavorito',valor)
     },
   }
 })
