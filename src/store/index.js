@@ -22,7 +22,10 @@ export default new Vuex.Store({
     },
     mutandoFavorito(state,valor){
       state.favorito.push(valor)
-    }
+    },
+    mutandoEliminarFa (state,index){
+      state.favorito.splice(index,1)
+    },
   },
    actions:{
     async llamadoAPI({commit}){
@@ -36,6 +39,9 @@ export default new Vuex.Store({
     },
     agregarFavorito({commit}, valor){
         commit('mutandoFavorito',valor)
+    },
+    eliminarFavorito({commit}, index){
+      commit('mutandoEliminarFa', index)
     },
   }
 })

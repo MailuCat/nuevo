@@ -52,6 +52,5 @@
 <script>
  export default {
     name: 'Opiniones',
-    
-}
+  }
 </script>
