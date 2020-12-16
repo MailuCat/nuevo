@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     datosApi: [],
-    favorito: []
+    favorito: [],
+    opinion:  []
   },
   getters:{
     enviarDatosApi(state){
@@ -15,6 +16,10 @@ export default new Vuex.Store({
     enviarFavorito(state){
       return state.favorito;
     },
+    enviarOpinion(state){
+      return state.opinion;
+    }
+
   },
   mutations: {
     mutandoDatosApi(state,datos){
@@ -26,6 +31,9 @@ export default new Vuex.Store({
     mutandoEliminarFa (state,index){
       state.favorito.splice(index,1)
     },
+    mutandoOpinion (state,palabras){
+      state.opinion.push(palabras)
+    }
   },
    actions:{
     async llamadoAPI({commit}){
@@ -43,5 +51,8 @@ export default new Vuex.Store({
     eliminarFavorito({commit}, index){
       commit('mutandoEliminarFa', index)
     },
+    guardarOpinion({commit}, palabras){
+      commit('mutandoOpinion', palabras)
+    }
   }
 })

@@ -21,6 +21,7 @@
 <script>
  import { mapActions, mapGetters } from "vuex";
 
+
 export default {
   name: 'Favoritos',
   computed: {
@@ -28,6 +29,11 @@ export default {
   },
    methods: {
             ...mapActions(['eliminarFavorito'])
-        },
+        
+        
+    }
+            
+     
+    
  }
 </script>
