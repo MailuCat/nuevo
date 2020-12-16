@@ -20,6 +20,7 @@ export default new Vuex.Store({
       return state.opinion;
     }
 
+
   },
   mutations: {
     mutandoDatosApi(state,datos){
@@ -45,8 +46,8 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    agregarFavorito({commit}, valor){
-        commit('mutandoFavorito',valor)
+    agregarFavorito({commit}, opinion){
+        commit('mutandoFavorito',opinion)
     },
     eliminarFavorito({commit}, index){
       commit('mutandoEliminarFa', index)

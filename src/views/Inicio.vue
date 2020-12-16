@@ -13,8 +13,29 @@
                     Opinar</button>  
                      <button type="button" class="btn btn-primary mr-4" data-toggle="modal" :data-target="'#personaje'+index">
                    Ver más</button>  
-                               
                 </div>
+                    <div class="modal fade" :id="'personaje'+index" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                          <div class="modal-body">
+                            <p> El estado del personaje es {{item.status}}</p>
+                            <p> Vive en {{item.species}}</p>
+                            <p> Su origen es {{item.origin.name}}</p>
+                            <p> Ha participado en {{item.episode.length}} capítulos</p>
+                            <p> Nació el {{item.created}}</p>
+                          </div>
+                          <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                          <button type="button" class="btn btn-primary" @click="agregarFavorito(item)">Agregar a Favoritos</button>
+                        </div>
+                      </div>
+                    </div>
        <!-- Modal opinando -->
                <div class="modal fade" tabindex="-1" :id="'opinar'+index"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
@@ -44,32 +65,8 @@
                     <div>
                     </div>
                  </div>
-                                                             
-                       
-        <!-- Modal --> 
-                  <div class="modal fade" :id="'personaje'+index" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                           </button>
-                        </div>
-                          <div class="modal-body">
-                            <p> El estado del personaje es {{item.status}}</p>
-                            <p> Vive en {{item.species}}</p>
-                            <p> Su origen es {{item.origin.name}}</p>
-                            <p> Ha participado en {{item.episode.length}} capítulos</p>
-                            <p> Nació el {{item.created}}</p>
-                          </div>
-                          <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                          <button type="button" class="btn btn-primary" @click="agregarFavorito(item)">Agregar a Favoritos</button>
-                        </div>
-                      </div>
-                    </div>
-             </div>
+           <!-- Modal --> 
+           </div>
           </div>
          </div>
        </div>
